@@ -204,16 +204,119 @@ Para obtener datos del mundo exterior se utiliza la funcion Input, este siempre 
 >#Quien eres? johan
 >#Bienvenido: johan
 >```
+---
+## Operadores de comparación  
 
-            
+|`Python`|`Significado`|
+|:----:|:-------:|
+|<| Menor que|
+|<= |Menor o igual que|
+|==|Igual a|
+|>=|myor o Igual a|
+|>|Mayor que|
+|!=|Diferente a|
 
+
+## Condicionales 
+## IF
+
+>Ejemplo de uso de los operadores de compraracón con IF
+>```python
+> x = 5
+> if x > 4 :
+>   print ('mayor que 4')
+> if x >= 5 :
+>   print ('mayor o igual a 5')
+> if x < 6 :
+>   print ('menor que 6')
+> if x <= 5 :
+>   print ('Menor o igual a 5')
+> if x != 6 :
+>   print ('diferente a 6')
+>```
+
+## Indentación
+la indentación es muy importante en python, es el equivalente a la llaves{} en java, o en c, agupa bloques de codigo, cambia el flujo de ejecución. 
     
-  
+***Importante, siempre usar los mismos espacios para la indentación, o de usa tab, o se usa espacios.python sabe cuando se utiliza tab y espacios. (esto lo suluciona los editores de texto como vs. atom etc. ellos lo hacen automatimamente cuando de pone la extención .py), pero si no los tienes es mejor utilizar espacios.***
 
+### ELSE
+hay 2 caminos para las desiciones, esto en python se logra con la combinación de if y else, que pasa si o de lo contrario haga otra cosa.
 
+>Este es un ejemplo:
+>```python
+>x = 4
+>if x > 2 :
+>  print ('numero grande')
+>else :
+>  print ('numero pequeño')
+>print ('aqui termina el if else')
+>```
 
-  
-  
+### Multipes caminos
+solo recorre un solo camino, el que cumpla y listo. y el ultimo es el else que es por si ninguno cumple; pero como se dijo anteriormente solo ealua una de los muchos caminos y luego sale.
+
+>```python
+>x = 4
+>if x < 2 :
+>  print ('numero pequenño')
+>elif x  < 10  :
+>  print ('numero mediano')
+> else :
+>  print ('numero grande')
+>print ('aqui termina el if else')
+>```
+>No es necesario poner el else, igual siempre el codigo seguira si no se pone.(trata que tu else no sea irrelevante, que sea logico ponerlo)
+
+### Puedo tener varios elif
+pero como siempre, encuentra la coincidencia y sale de los demas elif
+
+>```python
+>x = 4
+>if x < 2 :
+>  print ('numero pequenño')
+>elif x  < 10  :
+>  print ('numero mediano')
+>elif x  < 20  :
+>  print ('numero grande')
+> else :
+>  print ('numero grande')
+>print ('aqui termina el if else')
+>```
+>solo se imprimirá numero mediano y saldrá
+
+### Estructura "try" "except"
+la idea de esto, es cuando tenenos un codigo y sabemos que por algura razon puede fallar; esto nos permite que el codigo no explote, se detenga y termine la ejecución, si no mas bien le damos algo que hacer cuando algo salga mal.
+
+* Si el código en try funciona – except es omitido
+* Si el código en try falla – pasa a la sección except 
+
+>el siguiente es un codigo que va a fallar en la linea 2, como no tiene el try except el programa se detendra su ejecucion, sin que las otras linea de codigo se ejecuten
+>```python
+> $ cat notry.py
+>astr = 'Hola Bob'
+>istr = int(astr)
+>print('Primero', istr)
+>astr = '123'
+>istr = int(astr)
+>print('Segundo', istr)
+>```
+
+>Ejemplo en try except
+>```python
+>astr = 'Hola Bob'
+>try:
+>    istr = int(astr)
+>except:
+>    istr = -1
+>print('Primero', istr)
+>astr = '123'
+>try:
+>    istr = int(astr)
+>except:
+>    istr = -1
+>print('Segundo', istr)
+
 
 ### Patrones de compartamiento
 > Pasos secuenciales
@@ -241,5 +344,24 @@ Para obtener datos del mundo exterior se utiliza la funcion Input, este siempre 
 >    print (n)
 >    n = n - 1
 >print('salí del while\n')
+---
+
+## Comentarios
+Es muy importarnte poner comentarios en nuestro codigo, esto nos ayuda a la documentación del mismo
+y anuestro futuro yo.
+
+`#un comentario en python inicia con #`
+
+## Primer programa
+todo programa en python contiene una  **Enetrada**, un **Procesamieto**, y genera una **Salida*.
+
+```python
+#Convertidor de pisos de un ascensor
+inp = input ('Piso Eurpeo?')
+usf = int(inp) + 1
+print ('Piso equivalente USA', usf)
+```
+## Funciones
+
 
 

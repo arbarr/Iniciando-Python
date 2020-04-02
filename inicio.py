@@ -41,3 +41,30 @@ print ('ahora puedo sumar 123 + 1 = ',int ('123')+1,type (int ('123')+1),'\n')
 print('Obtener datos del exterior, teclado')
 nombre = input ('Quien eres? ')
 print('Bienvenido:',nombre)
+
+#convertidos de pisos
+print('este es el convertidor de pisos del ascensor')
+inp = input ('Piso Eurpeo?')
+usf = int(inp) + 1
+print ('Piso equivalente USA', usf,'\n')
+
+# try except
+print('el siguiente es un ejemplo del try except\n')
+astr = 'Cadena de texto'
+print('soy un ', astr ,' un',type (astr))
+try:
+    print ('qui estoy en el primer try ejecutaré int(Cadena de texto) y fallaré')
+    istr = int(astr)
+except:
+    print('estoy en el primer excetp')
+    istr = -1
+print('Como el codigo el try falló, ejecuto except y en este caso  No detengo la ejecución y muestro', istr,'\n')
+astr = '123'
+print('soy una cadena de texto pero en numeros co el valor ', astr ,' un',type (astr))
+try:
+    print ('qui estoy en el segundo try ejecutaré int(123) y esto no fallará')
+    istr = int(astr)
+except:
+    print ('aqui estoy en el segundo except y este codigo no se ejecuta por que int(123) del segunto try es correcto ')
+    istr = -1
+print('Ejecuto lo del segundo try y sigue l aejecución', istr)
