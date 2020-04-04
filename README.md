@@ -362,6 +362,124 @@ usf = int(inp) + 1
 print ('Piso equivalente USA', usf)
 ```
 ## Funciones
+* las funciones de hacen con el fin de reutilizar el codigo lo mas que se pueda. si tenemos patrones repetitivos, hacemos funciones.
+* En Python una función es un código reutilizable que toma argumentos(s) como input, realiza algunos cálculos y luego devuelve uno o más resultado(s).
+* Para definir una función utilizamos la palabra reservada def.
+* Llamamos/Invocamos a la función utilizando una expresión que contenga el nombre de la función, paréntesis y argumentos
+
+>El siguiente es un ejempolo de declaracion y llamado de una función
+>```python
+>def objeto(): #con def de declara una función
+>    print('Hola')
+>>print('Diversión')
+>objeto() #con el nombre de la funcion se llama la misma
+>print('Zip')
+>objeto()
+>```
+
+Las funciones en python las haY de 2 tipos
+
+1. Funciones incorporadas, que son parte de python, y se identifican con palabras reservadas del lenguaje `print(), type(),float(),init().`
+2. Funciones que nosotros definimos, y despues que las definimos, se convierten como un nuvo tipo de palabra reservada. ***es decirlas tratamos como palabras reservadas, no les damos estos nombres a variables dentro el programa***
+
+el siguiente ejemplo de la función max, que recibe como argumento una caden ade texto, y regresa la letra mas alta del alfabeto. en la siguiete imagen podemos ver su comportamiento.
+
+
+
+![Funcion1](/imagenes/funcion1.png "tomado de:Charles Severance, Facultad de Información
+de la Universidad de Michigan")
+
+
+
+
+
+![Funcion1](/imagenes/funcion2.png "tomado de:Charles Severance, Facultad de Información
+de la Universidad de Michigan")
+
+
+
+
+
+
+
+
+![Funcion1](/imagenes/funcion3.png "tomado de:Charles Severance, Facultad de Información
+de la Universidad de Michigan")
+
+Una vez que hemos definido una función, podemos llamarla (o
+invocarla) todas las veces que queramos
+Este es el patrón almacenar y reutilizar
+
+### Argumentos de una función
+* Un argumento es un valor que informamos a la función como su entrada (input) cuando llamamos a la función
+* Utilizamos argumentos para poder instruir a la función que realice diferentes tareas cuando la llamamos en diferentes oportunidades
+* Colocamos los argumentos entre paréntesis luego del nombre de la función (no es una variable es un dato concreto)
+
+>`grande = max('Hola mundo')`
+### Parametros
+Un parámetro es una variable que utilizamos en la función definition (definición). Es una “handle” (palanca) que permite al código de la función
+acceder a los argumentos para invocar una función en particular.(si es una variable)
+
+>```python
+> def saludo(lang):
+>   if lang == 'es':
+>       print('Hola')
+>   elif lang == 'fr':
+>       print('Bonjour')
+>   else:
+>       print('Hello')
+>
+>   >>> saludo ('en')
+>   Hello
+>   >>> saludo ('es')
+>   Hola
+>   >>> saludo ('fr')
+>   Bonjour
+>```
+
+### Valores de Retorno
+A menudo, una función tomará sus argumentos, hará algunos cálculos, y retornará un valor que se usará como el valor de la llamada de la función en la expresión de llamada. La palabra clave return (retorno) se utiliza para esto.
+
+>```python
+>def saludo ():
+>   return "Hola"
+> 
+>print(saludo (), "Glenn")# Hola Glenn
+>print(saludo (), "Sally")#Hola Sally
+>```
+
+El enunciado return termina la ejecución de la función y “devuelve” el resultado de la
+función
+>```python
+> def saludo (lang):
+>   if lang == 'es':
+>       return 'Hola'
+>   elif lang == 'fr':
+>       return 'Bonjour'
+>   else:
+>       return 'Hello'
+>
+>>>> print(saludo ('en'),'Glenn')
+>Hello Glenn
+>>>> print(saludo ('es'),'Sally')
+>Hola Sally
+>>>>print(saludo ('fr'),'Michael')
+>Bonjour Michael
+>``` 
+
+### Multiples parametros y argumentos
+* Podemos definir más de un parámetro en la definición de la función
+* Simplemente agregamos más argumentos cuando llamamos a la función
+* ***Hacemos coincidir el número y orden de los argumentos y parámetros***
+>```python
+>def addtwo(a, b):
+>   agregado = a + b
+>   return agregado
+>x = addtwo(3, 5)
+>print(x)
+>8
+>```
+
 
 
 
