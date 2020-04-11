@@ -349,6 +349,8 @@ print ('There were', count, 'lineas de asunto en',fname,'y esta en la linea :',l
 #Resultado:There were 1 lineas de asunto en texto.txt en la lines numero: 5
 ```
 ### Solicitud de nombre de archivo de una forma mas profesional.
+
+
 ```python
 fname = input ('Ingrese nombre de archivo: ')
 try:
@@ -365,3 +367,619 @@ for line in fhand :
         lineas = lines       
 print ('There were', count, 'lineas de asunto en',fname,'y esta en la linea :',lineas)
 ```
+## listas en python
+
+
+
+las listas de datos, hacen parte de lo que se llama la `Estructura de datos`, que no es mas que un camino de organización de datos en una computadora. son formas conplejas de usar la memoria de un computador.
+
+ * colecciones: donde tenemos mas de un valor en una variable
+ * lo que no es una colección:
+>```python
+>x = 2
+>x = 4
+>print (x)
+>```
+>El codigo anterior no es una coleción,trata de confundirnos los diferentes valores que toma x pero es en un mismo instante.
+
+### Listas
+una lista es un tipo colección, es decir, en una sola variable  podemos tener mas de una cosa, son lo que normalmente en otros leguajes llamamos arrays.
+
+```python
+friends = ['el loco', 'espinosa', 'la maldita ranga']
+otros = ['socks','calcetines','camisetas']
+```
+
+
+### Listasa de constantes
+
+las constantes de una lista estan entre corchetes, y los elementos de las listas se ponen separados por comas
+un elemento de una lista puede ser cualquier OBJETO de python, incluso un elemento puede ser una lista (una lista anidada dentro de un elemento)
+
+Una lista tanbien puede estar vacia.
+
+Unos ejemplos:
+```python
+print ([1, 23, 89 ])
+#[1, 23, 89]
+print (['red', 'rojo', 'yellow'])
+#['red', 'rojo', 'yellow']
+print (['red', 34, 98.4])
+#['red',34,98.4]
+print ([1, [5,6],7])
+#[1,[5,6],7] - es una lista anidada en un elemento
+print ([])
+#[]
+```
+### Trabajando con listas
+
+
+```python
+friends = ['el loco', 'espinosa', 'la maldita ranga']
+for amigos in friends :
+    print ('Hola jovenes: ',amigos)
+print ('terminado')
+
+```
+### Mirando dentro de una lista
+
+esto ocurre cuando queremos ver un elemento especifico dentro de una lista, para esto utilizamos su Indice, estos iniciaan a contar desde 0, 1, 2 .....
+
+
+```python
+friends = ['castañeda', 'esinosa', 'loco']
+print (friends [1])
+#espinosa
+```
+
+### Las listas son mutables (se pueden cambiar sus elementos)
+
+
+A comparación con las listas, los strings no son mutables, no se pueden cambiar su contenido
+
+Ejemplo:
+
+```python
+fruit = 'Banana'
+fruit [0] = 'b'
+#esto arroja un errot
+nun = [2,55,66,73]
+print (num)
+#[2,55,66,73]
+num [2] = 90 # se cambia el valor del indice 2
+print (num)
+#[2,55,90,73]
+```
+
+
+### Como saber la longitud de  una lista?
+
+```python
+greet = 'Hola greet significa saludo'
+print (len (greet))
+#27 caracteres
+
+x = [1, 2, 'johan', 88]
+print (len (x))
+#4
+```
+### Usando la Función `Range`
+El tipo range() con un único argumento se escribe `range(n)` y crea una lista inmutable de n números enteros consecutivos que empieza en `0` y acaba en `n - 1.`
+
+Para ver los valores del `range()`, es necesario convertirlo a lista mediante la función `list()`.
+>https://www.mclibre.org/consultar/python/lecciones/python-range.html
+
+Ejemplo:
+```python
+x = range (4)
+print (x)
+#ange(0, 4)
+print (list (x))
+#[0, 1, 2, 3]
+friends = ['castañeda', 'esinosa', 'loco']
+print (len(friends))
+#3
+print (list (range(len(friends))))
+#[0, 1, 2]
+```
+### Concatenando listas con `+`
+Podemos crear una nueva lista agregando  una lista ya creada ( sumando 2 listas)
+
+
+```python
+a = [1,2,4]
+b = [5,6,7]
+c = a + b
+print (a)
+#[1, 2, 4]
+print (c)
+#[1, 2, 4, 5, 6, 7]
+```
+
+
+Tambien podemos ver una lista por partes
+No tiene en cuenta el segundo numero algo asi como `[x,n-1]`
+```python
+ t = [5,7,0,34,67,29]
+ t[1:3]
+ #[7,0]
+ t[:4]
+ #[5,7,0,34]
+ t[3:]
+ #[34,67,29]
+t[:]
+#[5,7,0,34,67,29]
+```
+### Metodo `list()`
+el metodo `list()` crea una lista vacia,y se puede iniciar a llenerla  con  el metodo `append()`
+
+```python
+stuff = list () #se crea una lista vacia
+stuff.append ('book')
+stuff.append(99)
+print (stuff)
+#['book',99]
+stuff.append('cookie')
+print (stuff)
+#['book',99,'cookie']
+```
+
+el metodo sppend(), agrega un elemto a la lista pero  al FINAL de la misma.
+
+Ejercicio aplicando listas.
+sacar el promedio de una lista de numeros ingresados. para salir del bucle el usuario debe introducir la palabra `done`
+
+Ejemplo sin Utilizar listas:
+
+```python
+total = 0
+conteo = 0
+while True : 
+     num = input ('Ingresa un numero: ')
+     if num == 'done' : break
+     valor = float (num)
+     total = total + valor
+     conteo = conteo + 1
+promedio = total / conteo
+print ('el promedio es:', promedio)
+```
+
+Ejemplo utilizando listas:
+
+```python
+listnum = list()
+while True : 
+     num = input ('Ingresa un numero: ')
+     if num == 'done' : break
+     valor = float (num)
+     listnum.append(valor)
+promedio = sum(listnum) / len(listnum)
+print ('el promedio es:', promedio)
+```
+### Funciones que se usan con las listas
+* `list.sort(reverse=True|False, key=myFunc)`: El sort()método ordena la lista de forma ascendente por defecto.
+También puede realizar una función para decidir los criterios de clasificación.
+```python  
+#Organizando listas (por defecto)
+  
+cars = ['Ford', 'BMW', 'Volvo']
+lista = cars.sort()
+print (cars)
+#['BMW', 'Ford', 'Volvo']
+```
+```python
+# Organizando listas (reverse de mayor a menor)
+   
+cars = ['Ford', 'BMW', 'Volvo']
+cars.sort(reverse=True)
+print (cars)
+#['Volvo', 'Ford', 'BMW']
+```
+
+```python
+#Organizando listas con nuestro criterio (longitud de sus elementos)
+
+def myFunc(e):
+  return len(e)
+cars = ['Ford', 'Mitsubishi', 'BMW', 'VW']
+cars.sort(key=myFunc)
+print (cars)
+#['VW', 'BMW', 'Ford', 'Mitsubishi']
+```
+
+
+```python
+# Organizando listas con nuestro criterio (longitud de sus elementos) de mayor a menor
+
+def myFunc(e):
+  return len(e)
+cars = ['Ford', 'Mitsubishi', 'BMW', 'VW']
+cars.sort(reverse=True, key=myFunc)
+print (cars)
+#['Mitsubishi', 'Ford', 'BMW', 'VW']
+```
+* la función `max()` regresa el valor mas grande
+```python
+num = [3,5,7,8,9,10]
+print (max(num))
+# 10
+```
+
+* la función `min()` regresa el valor mas pequeño
+
+```python
+num = [3,5,7,8,9,10]
+print (min(num))
+# 10
+``` 
+
+* la función `sum()` suma los elementos en una lista y regresa el resultado
+
+```python
+num = [3,5,7,8,9,10]
+print (sum(num))
+# 42
+```
+
+## Trabajando con  strings y List `string.split(separator, maxsplit)`
+una de las primeras funciones útiles para trabajar con `strings` y `list()` es la función `split()`, que nos permite dividir una cadena de texto en una lista(cada palabra es un elemento de la lista).
+* se sede definir el separador, pero por defecto  es cualquier espacio en blanco.
+```python
+txt = "welcome to the jungle"
+x = txt.split()
+print(x)
+#['welcome', 'to', 'the', 'jungle']
+```
+* se define el separador ","
+```python
+txt = "hello, my name is Peter, I am 26 years old"
+x = txt.split(", ")
+print (x)
+#['hello', 'my name is pedro', 'I am 43years old']
+```
+
+* tambien se puede especificar en  cuentos elementos se quiere dividir la lista `maxsplit(n+1)`
+  
+```python
+txt = "apple#banana#cherry#orange
+x = txt.split("#", 1)
+print(x)
+#['apple', 'banana#cherry#orange']
+```
+Ejercicio:
+```python
+#sacar el host de "johan.jimenez@gmail.com.co domingo 05 de abril a las 22:05 horas"
+# esta es mi forma de hacerlo
+
+file = open ('texto.txt')
+texto = file.read()
+x = texto.split("\n")
+primer = x[0].split()
+correo = primer[1].split('@')
+host = correo[1]
+print (host)
+#gmail.com.co
+```
+## Diccinarios
+los diccionarios son otro tipo de colleciones (como las listas). los diccionaros son las colecciones mas importantes de python.
+
+en los diccionarios se manejan etiquetas, (un nombre identificativo para un elemento).
+*par de  valores clave para cada elemento*
+
+Entonces, todos lo elementos dentro de un diccionario tiene una clave  un valor.
+
+son como una base de datos bebes (valor clave). os diccionarios en python son como los arrys asociativos en php
+
+```python
+maleta = dict()
+maleta ['dinero'] = 50000
+maleta ['dulces'] = 10
+maleta ['camisas'] = 4
+print (maleta)
+#{'dinero': 50000, 'dulces': 10, 'camisas': 4}
+print (maleta['dulces'])
+#10
+maleta ['dulces'] = maleta ['dulces'] + 2
+print (maleta)
+#{'dinero': 50000, 'dulces': 12, 'camisas': 4}
+```
+
+
+haciendo una comparación con las listas, podemos observar la siguiente imagen.
+
+
+
+
+
+
+
+
+
+
+![Diccionario1](imagenes/diccionario1.png "tomado de:Charles Severance, Facultad de Información
+de la Universidad de Michigan")
+
+tambien se pueden crear diccionarios sin la funcion `dict()`.
+ejemplo:
+```python
+diccionario = {'nombre' : 'johan', 'edad': 29, 'estado civil': 'soltero'}
+print (diccionario)
+#{'nombre': 'johan', 'edad': 29, 'estado civil': 'soltero'}
+print (diccionario['nombre'])
+#johan
+diccionario_vacio = {}
+```
+Un uso común de los diccionarios es contar con qué frecuencia "vemos" algo
+
+```python
+count = dict ()
+names = ['johan', 'jessi','johan','yeison','jessi']
+for name in names :
+    if name not in count : #  si no esta en entra
+        count[name] = 1
+    else :
+        count [name ] = count[name] + 1
+print (count)
+#{'johan': 2, 'jessi': 2, 'yeison': 1}
+``` 
+### Metodo get en Diccionarios
+El `get()` método devuelve el valor del elemento con la clave especificada.
+
+`dictionary.get(keyname, value)`
+keyname:Necesario. El nombre clave del elemento del que desea devolver el valor.
+
+value:Opcional. Un valor a devolver si la clave especificada no existe.
+Valor predeterminado Ninguno
+
+```python
+car = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+
+x = car.get("model")
+print(x)
+#Mustang
+```
+
+ejemplo: contar con qué frecuencia "vemos" algo con `get()`
+```python
+counts = dict ()
+names = ['johan', 'jessi','johan','yeison','jessi']
+for name in names :
+    print (counts.get(name,0))
+    counts[name] = counts.get(name,0) + 1
+print (counts)
+#{'johan': 2, 'jessi': 2, 'yeison': 1}
+```
+
+## Diccionarios y archivos
+Ejemplo 1:
+
+
+```python
+palabras = {'computador' : 3, 'mesa' : 1, 'fuente' : 4}
+for key in palabras :
+    print (key,palabras[key])
+#computador 3
+#mesa 1
+#fuente 4
+```
+Ejemplo 2:Recuperanso la lista de claves y valores
+de un diccionario se pueden recuperar los elementos de varias formas:
+
+* una lista de claves
+* una lista de valores
+* una lista de items (llave , valor en tuplas)
+
+```python
+goles = {'johan' : 2 , 'yeison ' : 4, 'mateo': 3}
+print (list (goles)) 
+#['johan', 'yeison ', 'mateo'] 
+#  
+print (goles.keys()) 
+#dict_keys(['johan', 'yeison ', 'mateo'])
+
+print (goles.values())
+#dict_values([2, 4, 3])
+
+print (goles.items())
+#dict_items([('johan', 2), ('yeison ', 4), ('mateo', 3)])
+```
+### Variables de 2 iteraciones
+
+```python
+goles = {'johan' : 2 , 'yeison ' : 4, 'mateo': 3}
+for key, value in goles.items() :
+    print (key, value)
+#johan 2
+#yeison  4
+#mateo 3
+```
+Ejemplo practico de archivos y diccionarios, 
+retorna la palabra que mas se prepite en un archivo.
+```python
+archivo = input ('Ingrese nombre del arcihvo: ')
+file = open (archivo)
+diccionario = dict()
+for line in file :
+    linea = line.split()
+    for lineas in linea :
+        diccionario [lineas] = diccionario.get(lineas,0) +1
+print (diccionario)
+conteomayor = None
+palabramayor = None
+for palabra, conteo in diccionario.items():
+    if conteomayor is None or conteo > conteomayor :
+        palabramayor = palabra
+        conteomayor = conteo
+print (palabramayor, conteomayor)
+```
+## Tuplas
+ Una tupla es una colección ordenada e inmutable (es como una lista de constantes, por que sus valores no se pueden cambiar) .En Python, las tuplas se escriben entre corchetes.  
+
+```python
+tupla = ("apple", "banana", "cherry")
+print(thistuple[-1]) #imprime el último elemento de al tupla
+#cherry  
+```
+con las tuplas, al ser inmutables, no trabaja con las funciones `sort()`, `append()`, `reverse()`
+
+Nota Importante: Como Python no tiene que construir estructuras de tuplas para poder modificarse, son más simples y eficientes en términos de uso de memoria y rendimiento que la lista.
+
+así que en nuestro programa cuando hacemos "variables temporales" preferimos las tuplas sobre la lista
+
+### Formas de asignar tuplas
+```python
+(x,y) = (4,'johan')
+print (x)
+#4
+print(y)
+#johan
+```
+### Tuplas y diccionarios
+el metodo `intems()` en diccionarios retorna una tupla de (llave, valor)
+
+```python
+ggoles = {'johan' : 2 , 'yeison ' : 4, 'mateo': 3}
+tupla = goles.items()
+print (tupla) 
+#ict_items([('johan', 2), ('yeison ', 4), ('mateo', 3)])
+```
+
+### se pueden usar los operadores de comparación con tuplas
+Los operadores de comparación trabajan con tuplas y otras secuencias. si el  primer elemento es igual, python pasa al siguiente elemento, y así sucesivamente, hasta que encuentra elementos que difieren.
+
+```python
+comp = (1,1,2) < (5,1,2) 
+print (comp)
+#True
+comp = (1,1,2) < (6,1,2) 
+print (comp)
+#True
+comp = ("joahn") < ("amor") 
+print (comp)
+#False
+comp = ("amor","yeizon") < ("amor","z")
+print (comp)
+#True
+```
+### Organizando lista de tuplas
+para organizar un diccionario, primero lo convertimos en tuplas con el metodo `items()` y luego organizamos estas listas de items con la función `sort()`.
+
+
+```python
+goles = {'johan' : 2 , 'yeison ' : 4, 'mateo': 3}
+item = goles.items()
+print (item)
+#dict_items([('johan', 2), ('yeison ', 4), ('mateo', 3)])
+lorganizado = sorted(item)
+print (lorganizado)
+#[('johan', 2), ('mateo', 3), ('yeison ', 4)]
+```
+
+Otra forma de hacer lo anterior:
+
+```python 
+goles = {'johan' : 2 , 'yeison ' : 4, 'mateo': 3}
+orga = sorted (goles.item())
+for name, goles in sorted(goles.items()) :
+    print (name, goles)
+    #[('johan', 2), ('mateo', 3), ('yeison ', 4)]
+```
+
+### Organizar por valores en lugar de clave
+Normalmente cuando se usa sorted(), este lo organiza por las llaves (por orden alfabetico, numeros d emenor a mayor, etc), pero siempre utilizando la llave (key) , para organizarlo por los valores, la clave es cambiar de lugar la llave y el valor, y a funcion sorted () hará lo suyo.
+
+
+
+```python
+goles = {'johan' : 2 , 'yeison ' : 4, 'mateo': 3}
+lista = list()
+for nombre, gol in goles.items() :
+    lista.append ((gol,nombre)) # esta es la clave se invierte goles y nombre
+print (lista)
+#(2, 'johan'), (4, 'yeison '), (3, 'mateo')]
+lista = sorted (lista,reverse=True)
+print (lista)
+#[(4, 'yeison '), (3, 'mateo'), (2, 'johan')]
+```
+
+### Listas de comprención (listas simples)
+`[(vretorno1,vretorno2) for i, x in dictonari.item() if i > algo]`
+
+La listas de comprención las entiendo como una forma corta de representar (listas con for y condicionales).
+un termino mas teorico es:
+
+Las comprensiones de listas ofrecen una manera concisa de crear listas. Sus usos comunes son para hacer nuevas listas donde cada elemento es el resultado de algunas operaciones aplicadas a cada miembro de otra secuencia o iterable, o para crear una subsecuencia de esos elementos para satisfacer una condición determinada.
+
+```python
+c = {'a' : 3, 'r' : 5, 'g' : 4}
+print (sorted([(v,k) for k,v in c.items()]))
+#[(3, 'a'), (4, 'g'), (5, 'r')]
+```
+
+### Listas de comprención (listas anidadas)
+
+```python
+empleados = [['juan' , 5000 , 'ventas'], ['elena' , 6000 , 'ventas'], ['marcos' , 3400 , 'operario']]
+resultado1 = [ (nombre,sueldo) for nombre,sueldo,area in empleados if area is not 'ventas']
+print (resultado1)
+#[('marcos', 3400)]
+```
+
+### Bonus
+
+especie de matriz
+
+```python
+matriz = [[11,12,13],[21,22,23],[31,32,33]]
+[[print(xdato) for xdato in fila ]for fila in matriz]
+#lo primero que se ejecuta es el ultio forel de mas adentro
+#for fila no regresa nada
+#for x dato regresa xdato
+#1
+#12
+#13
+#21
+#22
+#23
+#31
+#32
+#33
+```
+
+Ejercicio final:
+
+imprmir desde un archivo las 10 letras mas reperidas de este mismo
+
+```python
+file = open('texto.txt')
+conteo = dict()
+#matriz = [line.split() for line in file ]
+for line in file :
+    matriz = line.split()
+    for repeat in matriz :
+        conteo [repeat] = conteo.get(repeat,0) +1
+#print (conteo)
+
+lista = list()
+"""
+for llave,valor in conteo.items() :
+    tupla = (valor,llave)
+    lista.append(tupla)
+lista = sorted(lista, reverse=True)
+for valor, key in lista[:10] : 
+    print (key,valor)
+"""
+lista = sorted ([(valor, llave) for llave,valor in conteo.items()],reverse=True)
+print (lista)
+[print(key,valor) for valor,key in lista[:10]]
+```
+
+
+
+
+
+

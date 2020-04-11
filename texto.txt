@@ -7,3 +7,109 @@ enviado por:	bounce.edx.org
 firmado por:	edx.org
 Cancelar suscripción:	Cancelar la suscripción a este remitente
 seguridad:	 Cifrado estándar (TLS) Más información
+de
+de 
+de 
+
+Bienvenido al capítulo diez, hablaremos de tuplas.
+Y en cierto modo, ya sabes tuplas,
+Las tuplas son una versión limitada de las listas.
+Y la suma total de esto es que las tuplas son más eficientes
+versión de la lista que no puede modificar, por lo que son listas realmente inmodificables.
+Así que aquí está la sintaxis de las tuplas pero
+se ve exactamente como listas, excepto que usaremos paréntesis.
+Así que aquí hay una tupla de tres.
+El concepto de tupla donde la tupla proviene de las matemáticas, dos tuplas,
+tres tuplas
+Una tupla de dos es una cosa que tiene dos cosas, es una forma de llamarla.
+Entonces tres tuplas.
+Es un conjunto de tres cosas básicamente.
+Entonces esta es una tupla de tres con tres cuerdas.
+Nuevamente, se ve exactamente como una lista, excepto usando paréntesis.
+Usamos el operador índice x de 2.
+Podemos usar la sintaxis constante, asignamos estas cosas.
+La impresión simplemente lo imprime como la sintaxis constante.
+Y simplemente no tiene llaves cuadradas, sino paréntesis.
+Cosas como Max usan tuplas,
+mira a través de una secuencia de cosas, enumera como una secuencia, las tuplas son una secuencia,
+una secuencia como secuencia y entonces max los revisa.
+Y un bucle for básicamente crea una narración de variable y
+luego rebota a través de las cosas que están en una tupla.
+Y así, en cierto modo, son lo mismo, ¿verdad?
+Lo mismo.
+Ahora hay diferencias.
+El lugar donde hay diferencias es que las tuplas no son cambiables,
+No son inmutables.
+Y si recuerdas, las cadenas tampoco son mutables.
+Y así, si echamos un vistazo.
+Si tenemos una lista, 9, 8, 7, y podemos cambiar x de 2 a 6,
+y luego eso cambia el 7 a un 6, las listas son mutables.
+Aquí tenemos una cadena de tres caracteres, ABC.
+Y queremos hacer el personaje 2 y convertirlo en una D con
+esta declaración de asignación y Python dice que no, no podemos hacer eso.
+Eso es un rastreo.
+Y lo mismo sucede con una tupla.
+Donde queremos hacer z sub 2 es igual a 0, y dice perdón.
+No puede cambiar, por lo que estos no son mutables.
+Entonces, la diferencia es que las listas son mutables, y luego las cadenas y
+Las tuplas no son mutables.
+Pero eso es parte de la eficiencia de las tuplas es que no son mutables, y
+eso les permite ser almacenados más densamente que las listas.
+Y así, hay un montón de cosas que no se pueden hacer con las tuplas.
+No puedes ordenar una tupla.
+Cualquiera sea el orden en que coloque la tupla cuando la cree, se queda en eso.
+No puede agregar, no puede extenderlo, no puede voltearlo al revés.
+Muchas cosas no funcionan, y si echas un vistazo a la salida del directorio
+de listas y tuplas, ves whoa, es un subconjunto.
+Puede contar e indexar, cuenta busca cuántas cosas coinciden con un valor particular.
+Index dice dónde está un valor particular, pero no se puede agregar ni extender,
+o insertar, reventar, eliminar.
+Porque todos esos métodos
+Las listas internas que las tuplas no tienen son las que le hacen cambios.
+Entonces está prohibido, pero también
+permite que Python sea más eficiente sabiendo que las tuplas no se van a cambiar.
+Lista, tiene que asignar memoria extra y
+cosas así, para que se cambien.
+Entonces ese es el punto, no tiene que construir estas estructuras para ser cambiables.
+Y, por lo tanto, son más eficientes y más eficaces que las listas.
+Si necesita una lista, use una lista, pero si puede salirse con una tupla,
+tendemos a usar tuplas, especialmente si vamos a hacer una variable por un breve momento,
+y luego tira esa variable.
+Ahora, hay un par de cosas interesantes e interesantes que podemos hacer con tuplas y
+una es que puedes poner una tupla en el lado derecho de una declaración de asignación.
+Ahora ambos tienen que ser variables en este caso.
+Ahora eso es muy diferente a poner una tupla en el lado izquierdo.
+Si lo coloco en el lado izquierdo de x e y, sería como, x es cuatro y
+y es seis, y eso es una tupla de cuatro seis.
+Pero si lo ponemos en el lado izquierdo, básicamente espera una tupla a la izquierda
+lado de la mano, espera una tupla en el lado derecho.
+Y luego hace una correspondencia uno a uno.
+Entonces, es lo mismo que decir x = 4 e y = ambos códigos fred.
+Y eso es una especie de declaración de asignación simultánea,
+podrías corregir esto con x = 4, y = fred, correcto.
+Eso estaría bien, pero puedes hacer esto, y lo veremos en un segundo.
+Y es justo, sea cual sea el orden.
+Ahora esto podría ser una expresión, o incluso una función que devuelve una tupla.
+Y luego puede asignarlo en dos.
+Dos variables al mismo tiempo.
+ahora si haces algo como a, b es igual a 9,
+va a explotar con eso, va a ser que no estoy contento con eso.
+Porque espera si hay una tupla de este lado
+Tiene que haber una tupla de ese lado.
+Y en este caso, si acabo de poner nueve aquí, no hay tupla de ese lado.
+Ahora, hemos jugado con esto, en realidad, ya, sin siquiera saberlo.
+Y así, la forma en que esto funciona es, si recuerda d elementos,
+los artículos te dan una lista de tuplas.
+Entonces este diccionario tiene dos cosas, mapas csev a 2 y mapas cwen a 4,
+y si decimos d artículos, decimos dame las tuplas, ¿verdad?
+Y entonces las tuplas regresan, así que esta es una lista de tuplas.
+Ahora lo que pasa es que así es como las dos variables,
+variable de dos iteraciones para obras.
+En estos, esta es una lista de dos tuplas.
+Y entonces, lo que sucede es que el primero entra en el ka y el segundo entra en el v.
+Esto es como una declaración de asignación para esta primera tupla.
+Luego ejecuta el bucle, y luego el segundo se pone en k y v,
+luego vuelve a ejecutar el ciclo.
+Y así es como construimos estas dos variables de iteración para
+bucles con tuplas.
+
