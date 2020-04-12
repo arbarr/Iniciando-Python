@@ -277,7 +277,7 @@ result = sorted ([(valor, llave)for llave,valor in dict(list(zip(ListaSimple,fre
 #purebas compresion de listas
 #print((i for i in range(3))) #no retrorna nada visible
 
-#Retorna una Tubla = ((0, 0), (1, 1), (2, 4))
+
 #tuple((v-tupla1=i,v-tupla2=i*i) for i in range(3))
 print(tuple((i,i*i) for i in range(3)))   
 
@@ -286,15 +286,13 @@ print(tuple((i,i*i) for i in range(3)))
 #cuando es una lista se ponen []
 print([i for i in range(3)])
 
-# otra fora de retornar una lista simple
+# otra forma de retornar una lista simple
 #list(elemetos de la lista = i for i in range(3))
 #en esta forma de declarar la lista se pone ()
 print (list(i for i in range(3)))
 
 #listas anidadas
 #generando listas aninadas
-#retorna =[[0, 1, 2], [0, 1, 2]]
-#retorno2 = [0, 1, 2]
 #observar muy bien como se escribio el codigo
 hola = list()
 hola= [[ h for h in range(3)],[ i for i in range(3)]]
@@ -303,26 +301,16 @@ print(hola[0])
 
 #Aplanando listas anidadas de compresion
 #esto se refiere a convertirla en una lista simple a una lista nidada
-#Retorna = [11, 12, 13, 21, 22, 23, 31, 32, 33]
+
 listaAnidada = [[11,12,13],[21,22,23],[31,32,33]]
 ListaSimple = [listSimple for sublista in listaAnidada for listSimple in sublista]
 print (ListaSimple)
 
 #si quiero imprimir en una colomna todas los items de l alista puedo utilizar
-#Retorna:
-#11
-#12
-#13
-#21
-#22
-#23
-#31
-#32
-#33
+#
 [[print(xdato) for xdato in fila ]for fila in listaAnidada]
 
 #Diccionarios
-# Retorna un Diccionario ={0: 0, 1: 1, 2: 4}
 #{(esta es la key) = i:(valores de cada key) = i**2 for i in range(3)}
 #{2 -ESTE ES EL ELEMENTO DE CADA LLAVE : ESTE ES EL VALOR PARA CADA LLAVE 1-PARA cada ITERACION EN estos 3 numeros}
 #para cada iteracion en estos 3 numeros
