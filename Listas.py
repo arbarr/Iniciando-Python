@@ -224,28 +224,115 @@ print (resultado1)
 matriz = [[11,12,13],[21,22,23],[31,32,33]]
 [[print(xdato) for xdato in fila ]for fila in matriz]
 """
-#Ejercicio Final
+#Ejercicio Final tal cua la guia 13 lineas
+"""
 file = open('texto.txt')
 conteo = dict()
-#matriz = [line.split() for line in file ]
+
 for line in file :
     matriz = line.split()
     for repeat in matriz :
         conteo [repeat] = conteo.get(repeat,0) +1
-#print (conteo)
 
 lista = list()
-"""
+
 for llave,valor in conteo.items() :
     tupla = (valor,llave)
     lista.append(tupla)
+    
 lista = sorted(lista, reverse=True)
+
 for valor, key in lista[:10] : 
     print (key,valor)
 """
+#Ejercicio Final de la guia con una modificaciones propias 8 lineas
+"""
+file = open('texto.txt')
+conteo = dict()
+
+for line in file :
+    matriz = line.split()
+    for repeat in matriz :
+        conteo [repeat] = conteo.get(repeat,0) +1
+
 lista = sorted ([(valor, llave) for llave,valor in conteo.items()],reverse=True)
-print (lista)
+#print (lista)
 [print(key,valor) for valor,key in lista[:10]]
+"""
+
+""" #Ejercicio Final Mi versión 6 lineas 
+file = open('texto.txt')
+#file = 'hola saludos hsludos'
+listaAnidada = [line.split() for line in file ]
+#print (matriz)
+ListaSimple = [listSimple for sublista in listaAnidada for listSimple in sublista]
+#print(uno)
+frecPalabras=[ListaSimple.count(palabras) for palabras in ListaSimple]
+#print(x)
+#dict(list(zip(uno,x)))
+result = sorted ([(valor, llave)for llave,valor in dict(list(zip(ListaSimple,frecPalabras))).items()],reverse =True)
+#print (result)
+[print(key,valor) for valor,key in result[:10]]
+"""
+#purebas compresion de listas
+#print((i for i in range(3))) #no retrorna nada visible
+
+#Retorna una Tubla = ((0, 0), (1, 1), (2, 4))
+#tuple((v-tupla1=i,v-tupla2=i*i) for i in range(3))
+print(tuple((i,i*i) for i in range(3)))   
+
+#retorna una lista simple = [0, 1, 2]
+# [elemetos de la lista = i for i in range(3)]
+#cuando es una lista se ponen []
+print([i for i in range(3)])
+
+# otra fora de retornar una lista simple
+#list(elemetos de la lista = i for i in range(3))
+#en esta forma de declarar la lista se pone ()
+print (list(i for i in range(3)))
+
+#listas anidadas
+#generando listas aninadas
+#retorna =[[0, 1, 2], [0, 1, 2]]
+#retorno2 = [0, 1, 2]
+#observar muy bien como se escribio el codigo
+hola = list()
+hola= [[ h for h in range(3)],[ i for i in range(3)]]
+print (hola)
+print(hola[0])
+
+#Aplanando listas anidadas de compresion
+#esto se refiere a convertirla en una lista simple a una lista nidada
+#Retorna = [11, 12, 13, 21, 22, 23, 31, 32, 33]
+listaAnidada = [[11,12,13],[21,22,23],[31,32,33]]
+ListaSimple = [listSimple for sublista in listaAnidada for listSimple in sublista]
+print (ListaSimple)
+
+#si quiero imprimir en una colomna todas los items de l alista puedo utilizar
+#Retorna:
+#11
+#12
+#13
+#21
+#22
+#23
+#31
+#32
+#33
+[[print(xdato) for xdato in fila ]for fila in listaAnidada]
+
+#Diccionarios
+# Retorna un Diccionario ={0: 0, 1: 1, 2: 4}
+#{(esta es la key) = i:(valores de cada key) = i**2 for i in range(3)}
+#{2 -ESTE ES EL ELEMENTO DE CADA LLAVE : ESTE ES EL VALOR PARA CADA LLAVE 1-PARA cada ITERACION EN estos 3 numeros}
+#para cada iteracion en estos 3 numeros
+print({i:i**2 for i in range(3)})  
+
+
+
+
+
+
 
 
 

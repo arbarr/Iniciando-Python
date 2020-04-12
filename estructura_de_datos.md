@@ -906,13 +906,20 @@ print (lista)
 #[(4, 'yeison '), (3, 'mateo'), (2, 'johan')]
 ```
 
-### Listas de comprención (listas simples)
-`[(vretorno1,vretorno2) for i, x in dictonari.item() if i > algo]`
-
+### Listas de compresion (listas simples)
 La listas de comprención las entiendo como una forma corta de representar (listas con for y condicionales).
 un termino mas teorico es:
 
-Las comprensiones de listas ofrecen una manera concisa de crear listas. Sus usos comunes son para hacer nuevas listas donde cada elemento es el resultado de algunas operaciones aplicadas a cada miembro de otra secuencia o iterable, o para crear una subsecuencia de esos elementos para satisfacer una condición determinada.
+Las comprensiones de listas ofrecen una manera concisa de crear listas, listas anidadas y diccionarios. Sus usos comunes son para hacer nuevas listas donde cada elemento es el resultado de algunas operaciones aplicadas a cada miembro de otra secuencia o iterable, o para crear una subsecuencia de esos elementos para satisfacer una condición determinada.
+
+```python
+(i for i in nums)       
+[i for i in nums]
+[1, 2, 3]
+list(i for i in nums)
+[1, 2, 3]
+
+```
 
 ```python
 c = {'a' : 3, 'r' : 5, 'g' : 4}
@@ -920,8 +927,83 @@ print (sorted([(v,k) for k,v in c.items()]))
 #[(3, 'a'), (4, 'g'), (5, 'r')]
 ```
 
+#### Purebas compresion de listas simples.
+
+* `print((i for i in range(3)))`  esto no retrorna nada visible.
+
+* `tuple((v-tupla1=i,v-tupla2=i*i) for i in range(3))`
+  * ```python
+     print (tuple((i,i*i) for i in range(3)))
+     #((0, 0), (1, 1), (2, 4))
+     ```
+
+* `[elemetos de la lista = i for i in range(3)]`
+    * ```python
+        #cuando es una lista se ponen []
+
+        print([i for i in range(3)])
+        #[0, 1, 2]
+        ```
+
+####  Otra fora de retornar una lista simple
+* `list(elemetos de la lista = i for i in range(3))`
+  * ```python 
+        #en esta forma de declarar la lista se pone ()
+        print (list(i for i in range(3)))
+        #[0, 1, 2]
+        ```
+
 ### Listas de comprención (listas anidadas)
 
+* Generando listas aninadas
+  * ```python    
+        #observar muy bien como se escribio el codigo
+        hola = list()
+        hola= [[ h for h in range(3)],[ i for i in range(3)]]
+        print (hola)
+        #[[0, 1, 2], [0, 1, 2]]
+        print(hola[0])
+        #[0, 1, 2]
+        ```
+
+### Aplanando listas anidadas de compresion
+Esto se refiere a convertirluna lista anidada en una lista simple.
+
+   
+  * ```python
+    
+    listaAnidada = [[11,12,13],[21,22,23],[31,32,33]]
+    ListaSimple = [listSimple for sublista in listaAnidada for listSimple in sublista]
+    print (ListaSimple)
+    #[11, 12, 13, 21, 22, 23, 31, 32, 33]
+    ```
+
+si quiero imprimir en una colomna todas los items de l alista puedo utilizar.
+
+* ```python
+    [[print(xdato) for xdato in fila ]for fila in listaAnidada]
+    #11
+    #12
+    #13
+    #21
+    #22
+    #23
+    #31
+    #32
+    #33
+    ```
+
+### Diccionarios
+`{(esta es la key) = i:(valores de cada key) = i**2 for i in range(3)}`
+  * ```python    
+    #{2 -ESTE ES EL ELEMENTO DE CADA LLAVE : ESTE ES EL VALOR PARA CADA LLAVE 1-PARA cada ITERACION EN estos 3 numeros}
+    #para cada iteracion en estos 3 numeros
+    print({i:i**2 for i in range(3)})
+    {0: 0, 1: 1, 2: 4}
+    ``` 
+
+
+### Otros  ejemplos
 ```python
 empleados = [['juan' , 5000 , 'ventas'], ['elena' , 6000 , 'ventas'], ['marcos' , 3400 , 'operario']]
 resultado1 = [ (nombre,sueldo) for nombre,sueldo,area in empleados if area is not 'ventas']
@@ -950,35 +1032,81 @@ matriz = [[11,12,13],[21,22,23],[31,32,33]]
 #33
 ```
 
-Ejercicio final:
-
+### Ejercicio final como esta en la guía 13 lineas de codigo 
 imprmir desde un archivo las 10 letras mas reperidas de este mismo
 
 ```python
+#Ejercicio Final tal cua la guia 13 lineas de codigo
+
 file = open('texto.txt')
 conteo = dict()
-#matriz = [line.split() for line in file ]
+
 for line in file :
     matriz = line.split()
     for repeat in matriz :
         conteo [repeat] = conteo.get(repeat,0) +1
-#print (conteo)
 
 lista = list()
-"""
+
 for llave,valor in conteo.items() :
     tupla = (valor,llave)
     lista.append(tupla)
+    
 lista = sorted(lista, reverse=True)
+
 for valor, key in lista[:10] : 
     print (key,valor)
-"""
+```
+### Versión de la guía con algunas modificaciones 9 lineas de codigo 
+
+
+```python
+#Ejercicio Final de la guia con una modificaciones propias 9 lineas
+file = open('texto.txt')
+conteo = dict()
+
+for line in file :
+    matriz = line.split()
+    for repeat in matriz :
+        conteo [repeat] = conteo.get(repeat,0) +1
+
 lista = sorted ([(valor, llave) for llave,valor in conteo.items()],reverse=True)
-print (lista)
 [print(key,valor) for valor,key in lista[:10]]
 ```
 
 
+
+### Mi version 6 lineas de codigo.
+
+Antes de Iniciar con el codigo, es necesario hablar  del metodo `count()`
+este metodo método devuelve el número de elementos con el valor especificado.
+
+* `list.count(valor)`
+* Valor: Es requerido y puede ser  Cualquier tipo (`cadena, número, lista, tupla,` etc.). El valor a buscar.
+
+```python 
+fruits = [1, 4, 2, 9, 7, 8, 9, 3, 1]
+x = fruits.count(9)
+print(x)
+#2
+```
+
+```python
+#Ejercicio Final Mi versión 6 lineas 
+#file = open('texto.txt')
+file = 'hola saludos hsludos'
+listaAnidada = [line.split() for line in file ]
+#print (matriz)
+ListaSimple = [listSimple for sublista in listaAnidada for listSimple in sublista]
+#print(uno)
+frecPalabras=[ListaSimple.count(palabras) for palabras in ListaSimple]
+#print(x)
+#dict(list(zip(uno,x)))
+result = sorted ([(valor, llave)for llave,valor in dict(list(zip(ListaSimple,frecPalabras))).items()],reverse =True)
+#print (result)
+[print(key,valor) for valor,key in result[:10]]
+
+```
 
 
 
